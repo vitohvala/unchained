@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Encyclopedia
+{% endblock %}
+
+{% block body %}
+<h1>Add new page</h1>
+<form action="{% url 'wikis:new_p' %}" method="POST">
+    {% csrf_token %}
+    <label for="">Name of the file</label>
+    <input type="text" name="title" placeholder="Enter a title"><br>
+    <label for="">Content of the Markdown file</label><br>
+    <textarea name="M_content"></textarea><br>
+    <input type="submit" value="Add File" class="btn btn-primary">
+</form>
+{% endblock %}
